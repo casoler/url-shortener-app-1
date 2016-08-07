@@ -1,16 +1,16 @@
-class Link < ActiveRecord::Base
-  has_many :visits
-  belongs_to :user
-
+class Link < ApplicationRecord
   validates :slug, presence: true
   validates :target_url, presence: true
 
+  has_many :visits
+  belongs_to :user
+
   def standardize_target_url!
-    self.target_url.gsub!("http://", "")
-    self.target_url.gsub!("https://", "")
+    target_url.gsub!("http://", "")
+    target_url.gsub!("https://", "")
   end
 
   def visit_count
-    self.visits.count
+    visits.count
   end
 end

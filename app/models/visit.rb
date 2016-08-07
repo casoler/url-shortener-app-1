@@ -1,3 +1,3 @@
-class Visit < ActiveRecord::Base
+class Visit < ApplicationRecord
   belongs_to :link
 end
